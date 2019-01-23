@@ -1,0 +1,34 @@
+
+./Setup.hs,15
+main main1,2
+
+./app/Main.hs,52
+module Main Main0,1
+main main4,5
+main main5,6
+
+./test/LittleTyperSpec.hs,186
+module LittleTyperSpec LittleTyperSpec0,1
+isAnAtom isAnAtom7,8
+isAnAtom isAnAtom8,9
+isNotAnAtom isNotAnAtom11,12
+isNotAnAtom isNotAnAtom12,13
+spec spec15,16
+spec spec16,17
+
+./test/test.hs,0
+
+./src/LittleTyper.hs,402
+module LittleTyperLittleTyper0,1
+data Thing Thing9,10
+data Thing = Atom Atom9,10
+data Thing = Atom { atom atom9,10
+           | SomethingElseSomethingElse10,11
+parse parse13,14
+parse parse14,15
+isAnAtom isAnAtom19,20
+isAnAtom isAnAtom20,21
+littleTyperParser littleTyperParser24,25
+littleTyperParser littleTyperParser25,26
+atomParser atomParser27,28
+atomParser atomParser28,29

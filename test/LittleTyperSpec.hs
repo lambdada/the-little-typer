@@ -1,21 +1,31 @@
 module LittleTyperSpec where
 
-import           LittleTyper
+import           LittleTyper     hiding (isAnAtom)
+import qualified LittleTyper     as T
 import           Test.Hspec
 import           Test.QuickCheck
 
+isAnAtom :: String -> SpecWith ()
+isAnAtom s =
+  it ("an atom is a tick mark followed by one or more letters or hyphens: " <> s) $  T.isAnAtom s `shouldBe` True
+
+isNotAnAtom :: String -> SpecWith ()
+isNotAnAtom s =
+  it ("an atom is a tick mark followed by one or more letters or hyphens: " <> s) $ T.isAnAtom s `shouldBe` False
+
 spec :: Spec
-spec = describe "The Little Typer" $
+spec =
+  describe "The Little Typer" $ do
   describe "Atoms" $ do
-  it "an atom is a tick mark followed by one or more letters or hyphens" $ do
-    isAnAtom "'atom" `shouldBe` True
-    isAnAtom "'ratatouille" `shouldBe` True
-    isAnAtom "---" `shouldBe` False
-    isAnAtom "'" `shouldBe` False
-    isAnAtom "'at0m" `shouldBe` False
-    isAnAtom "'coeur-d-artichauts" `shouldBe` True
-    isAnAtom "'coeur_d_artichauts" `shouldBe` False
-    isAnAtom "'αβγδ" `shouldBe` True
+    isAnAtom "'atom"
+    isAnAtom "'ratatouille"
+    isAnAtom "'coeur-d-artichauts"
+    isAnAtom "'αβγδ"
+  describe "Not Atoms" $ do
+    isNotAnAtom "---"
+    isNotAnAtom "'"
+    isNotAnAtom "'at0m"
+    isNotAnAtom "'coeur_d_artichauts"
 
   it "can be judged as an Atom" $ do
     parse "'atom"`shouldBe` (Right $ Atom "atom")
